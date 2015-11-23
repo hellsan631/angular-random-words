@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" ng-app="sample-app" ng-controller="AppController as vm">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Angular Random Words Service</title>
+
+  <style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+      display: none !important;
+    }
+  </style>
+
+  <link rel="stylesheet" href="vendor/materialize/bin/materialize.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <body class="blue-grey">
+    <div class="container">
+      <div class="row" style="margin-top: 20px;">
+        <div class="col s12">
+          <div class="card blue-grey darken-4">
+            <div class="card-content white-text">
+              <span class="card-title">Random Words</span>
+              <div class="section">
+                <p>
+                  Angular Random Words is meant to be used 3 different ways. Firstly, it can be used to
+                  generate single random words. It can generate an array of random words. And finally,
+                  it can generate a single string of random words, useful for a password.
+                </p>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="section">
+                <p>
+                  Inspired by the XKCD comic.
+                </p>
+              </div>
+              <div class="divider"></div>
+
+              <div class="section">
+                <div class="row">
+                  <div input-field class="col s12">
+                    <input ng-model="vm.opts.count" id="optionCount" type="number">
+                    <label for="optionCount">Word Count (Default: 4)</label>
+                  </div>
+                  <div input-field class="col s12">
+                    <input ng-model="vm.opts.min" id="optionMin" type="number">
+                    <label for="optionMin">Minimum Word Length (Default: 2)</label>
+                  </div>
+                  <div input-field class="col s12">
+                    <input ng-model="vm.opts.max" id="optionMax" type="number">
+                    <label for="optionMax">Maximum Word Length (Default: 6)</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="section">
+                <div class="row">
+                  <div input-field class="col s12">
+                    <input ng-model="vm.singleWord" id="singleWord" type="text">
+                    <label for="singleWord">Single Word</label>
+                  </div>
+                  <div input-field class="col s12">
+                    <input ng-model="vm.multipleWords" id="multipleWords" type="text">
+                    <label for="multipleWords">Multiple Words</label>
+                  </div>
+                  <div input-field class="col s12">
+                    <input ng-model="vm.password" id="password" type="text">
+                    <label for="password">Password</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-action right-align">
+              <button ng-click="vm.getRandoms()" class="waves-effect waves-light teal darken-2 btn-flat white-text">
+                More Random!
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js"></script>
+  <script src="vendor/materialize/bin/materialize.js"></script>
+  <script src="vendor/angular-materialize/src/angular-materialize.js"></script>
+  <script src="app/services/angular-random-words.min.js"></script>
+
+  <script src="app/app.module.js"></script>
+  <script src="app/app.controller.js"></script>
+
+</html>

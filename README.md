@@ -1,31 +1,60 @@
-# random-words
+# angular-random-words
 
 ## Generate one or more common English words
 
-`random-words` generates random words for use as sample text. We use it to generate random blog posts when testing [Apostrophe](http://apostrophenow.org).
+`angular-random-words` generates random words for use as sample text or passwords. Inspired by XKCD
 
-Cryptographic-quality randomness is NOT the goal, as speed matters for generating sample text and security does not. `Math.random()` is used.
+Cryptographic-quality randomness is of a concern for us, so we use ```window.crypto.getRandomValues()``` for our source of random.
 
-Installation:
+### Installation:
 
-    npm install random-words
+Download or Bower
+```
+bower install random-words --save
+```
 
-Examples:
+Include Scripts
+```html
+<script src="vendor/angular-random-words.min.js"></script>
+```
 
-    var randomWords = require('random-words');
+Add to Angular Modules
+```js
+angular
+  .module('app', [
+    'random-words'
+  ]);
+```
 
-    console.log(randomWords());
-    army
+### Examples:
 
-    console.log(randomWords(5));
-    ['army', 'beautiful', 'became', 'if', 'actually']
+```js
+;(function() {
+  'use strict';
 
-    console.log(randomWords({ min: 3, max: 10 }));
-    ['became', 'arrow', 'article', 'therefore']
+  angular
+    .module('sample-app', ['random-words'])
+    .controller('AppController', AppController);
 
-    console.log(randomWords({ exactly: 2 }));
-    ['beside', 'between']
+  AppController.$inject = ['RandomWords'];
 
-    console.log(randomWords({ exactly: 5, join: ' ' }))
-    'army beautiful became if exactly'
+  function AppController(RandomWords){
+    var _this = this;
 
+    _this.opts = {
+      count: 4,
+      min: 2,
+      max: 6
+    };
+
+    _this.getRandoms = getRandoms;
+
+    function getRandoms(){
+      _this.password      = RandomWords.password(_this.opts);
+      _this.singleWord    = RandomWords.randomWord(_this.opts);
+      _this.multipleWords = RandomWords.randomWords(_this.opts);
+    }
+  }
+
+})();
+```

@@ -7,6 +7,19 @@
     "type": "git",
     "url": "git://github.com/hellsan631/angular-random-words.git"
   },
+  "homepage": "http://hellsan631.github.io/angular-random-words/",
+  "authors": [
+    "Mathew Kleppin <mathew.kleppin@gmail.com>"
+  ],
+  "ignore": [
+    ".jshintrc",
+    ".editorconfig",
+    ".sass-cache",
+    "npm-debug.log",
+    "sample",
+    "node_modules",
+    "bower_components"
+  ],
   "keywords": [
     "random",
     "words",
@@ -22,25 +35,12 @@
     "package.json",
     "README.md"
   ],
-  "scripts": {
-    "start": "gulp serve",
-    "post-install": "bower install"
-  },
   "dependencies": {
-    "angular": ">=1.3.0"
+    "angular": "~1.4.4"
   },
+  "license": "MIT",
   "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-plumber": "^1.0.1",
-    "gulp-uglify": "^1.4.0",
-    "gulp-webserver": "^0.9.1"
-  },
-  "authors": [
-    "Mathew Kleppin <mathew.kleppin@gmail.com>"
-  ],
-  "bugs": {
-    "url": "https://github.com/hellsan631/angular-random-words/issues"
-  },
-  "license": "MIT"
+    "materialize": "~0.97.3",
+    "angular-materialize": "*"
+  }
 }
