@@ -1,5 +1,0 @@
-languages:
-   JavaScript: true
-exclude_paths:
-- "sample"
-- "angular-random-words.min.js"
